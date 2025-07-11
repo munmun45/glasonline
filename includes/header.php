@@ -1,17 +1,6 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <style>
-        /* Make sure the body has no margin that could cause scrolling */
-        body {
-            padding-top: 0;
-        }
-        
-        /* Add smooth scrolling to all links */
-        html {
-            scroll-behavior: smooth;
-        }
-    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GlasOnline - Your Aquarium Shop</title>
@@ -19,10 +8,110 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <!-- Font Awesome -->
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --primary-color: #1a1a1a;
+            --secondary-color: #4CAF50;
+            --text-light: #ffffff;
+            --text-dark: #333333;
+        }
+        
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: var(--text-dark);
+            padding-top: 0;
+            scroll-behavior: smooth;
+        }
+        
+        /* Navigation */
+        .navbar {
+            background: var(--primary-color);
+            padding: 0.8rem 0;
+            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+        }
+        
+        .navbar-brand {
+            font-weight: 800;
+            color: var(--secondary-color) !important;
+            font-size: 1.8rem;
+            letter-spacing: 0.5px;
+        }
+        
+        .nav-link {
+            color: var(--text-light) !important;
+            font-weight: 500;
+            padding: 0.5rem 1rem !important;
+            margin: 0 0.2rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .nav-link:hover, .nav-link.active {
+            background-color: rgba(76, 175, 80, 0.1);
+            color: var(--secondary-color) !important;
+        }
+        
+        /* Buttons */
+        .btn-outline-light {
+            border: 2px solid var(--secondary-color);
+            color: var(--secondary-color);
+            font-weight: 500;
+            padding: 0.4rem 1.2rem;
+            border-radius: 4px;
+            transition: all 0.3s ease;
+        }
+        
+        .btn-outline-light:hover {
+            background-color: var(--secondary-color);
+            border-color: var(--secondary-color);
+            color: var(--text-light);
+            transform: translateY(-2px);
+            box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+        }
+        
+        /* Search Form */
+        .form-control {
+            border-radius: 4px 0 0 4px;
+            border: 1px solid #ced4da;
+            padding: 0.5rem 1rem;
+            height: 38px;
+        }
+        
+        .form-control:focus {
+            border-color: var(--secondary-color);
+            box-shadow: 0 0 0 0.2rem rgba(76, 175, 80, 0.25);
+        }
+        
+        /* Cart Badge */
+        .cart-count {
+            position: relative;
+            top: -12px;
+            left: -6px;
+            font-size: 0.7rem;
+            background-color: var(--secondary-color) !important;
+            padding: 0.25rem 0.4rem;
+        }
+        
+        /* Responsive Adjustments */
+        @media (max-width: 991.98px) {
+            .navbar-collapse {
+                background: var(--primary-color);
+                padding: 1rem;
+                margin-top: 0.5rem;
+                border-radius: 4px;
+            }
+            
+            .nav-item {
+                margin: 0.3rem 0;
+            }
+            
+            .d-flex {
+                margin-top: 1rem;
+            }
+        }
+    </style>
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
-
-    
 </head>
 <body>
     <!-- Navigation -->
@@ -57,7 +146,7 @@
                 <div class="d-flex">
                     <a href="cart.php" class="btn btn-outline-light">
                         <i class="fas fa-shopping-cart"></i> Cart
-                        <span class="badge bg-danger cart-count">
+                        <span class="badge bg-danger cart-count" style="margin-left: 6px;">
                             <?php 
                             // Display cart count if cart exists in session
                             session_start();
