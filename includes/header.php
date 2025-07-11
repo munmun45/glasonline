@@ -1,6 +1,17 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
+    <style>
+        /* Make sure the body has no margin that could cause scrolling */
+        body {
+            padding-top: 0;
+        }
+        
+        /* Add smooth scrolling to all links */
+        html {
+            scroll-behavior: smooth;
+        }
+    </style>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>GlasOnline - Your Aquarium Shop</title>
@@ -10,10 +21,12 @@
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <!-- Custom CSS -->
     <link rel="stylesheet" href="assets/css/style.css">
+
+    
 </head>
 <body>
     <!-- Navigation -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="index.php">GlasOnline</a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
@@ -60,4 +73,6 @@
             </div>
         </div>
     </nav>
-    <div class="container my-4">
+    
+    <!-- Add padding to the top of the main content to account for fixed navbar -->
+    <div class="container" style="padding-top: 80px;">
