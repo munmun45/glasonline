@@ -56,9 +56,10 @@
             border: 2px solid var(--secondary-color);
             color: var(--secondary-color);
             font-weight: 500;
-            padding: 0.4rem 1.2rem;
+            padding: 0.4rem 0.7rem;
             border-radius: 4px;
             transition: all 0.3s ease;
+            position: relative;
         }
         
         .btn-outline-light:hover {
@@ -118,9 +119,35 @@
     <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top shadow-sm">
         <div class="container">
             <a class="navbar-brand" href="index.php">GlasOnline</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
+
+
+            <div class="d-flex gap-2">
+
+            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav" style="border: 2px solid var(--secondary-color);color: var(--secondary-color);font-weight: 500;padding: 0.4rem 0.7rem;border-radius: 4px;transition: all 0.3s ease;position: relative;">
+                <span class="fas fa-search"></span>
             </button>
+            <div class="d-flex d-md-none" style="margin-top: 0px;">
+                    <a href="cart.php" class="btn btn-outline-light">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge cart-count" style="position: absolute; top: -7px; width: fit-content; left: 29px; background-color: red !important; border-radius: 4px;">
+                            <?php 
+                            // Display cart count if cart exists in session
+                            session_start();
+                            if(isset($_SESSION['cart']) && is_array($_SESSION['cart'])) {
+                                echo array_sum(array_column($_SESSION['cart'], 'quantity'));
+                            } else {
+                                echo '0';
+                            }
+                            ?>
+                        </span>
+                    </a>
+                </div>
+
+
+
+            
+
+            </div>
             <div class="collapse navbar-collapse" id="navbarNav">
                 <!-- Navigation Links -->
                 <ul class="navbar-nav me-auto">
@@ -141,12 +168,12 @@
                         </button>
                     </div>
                 </form>
+                
 
-                <!-- Cart Button -->
-                <div class="d-flex">
+                <div class="d-flex" style="margin-top: 0px;">
                     <a href="cart.php" class="btn btn-outline-light">
-                        <i class="fas fa-shopping-cart"></i> Cart
-                        <span class="badge bg-danger cart-count" style="margin-left: 6px;">
+                        <i class="fas fa-shopping-cart"></i>
+                        <span class="badge cart-count" style="position: absolute; top: -7px; width: fit-content; left: 29px; background-color: red !important; border-radius: 4px;">
                             <?php 
                             // Display cart count if cart exists in session
                             session_start();
@@ -159,7 +186,12 @@
                         </span>
                     </a>
                 </div>
+                
             </div>
+
+
+            <!-- Cart Button -->
+            
         </div>
     </nav>
     

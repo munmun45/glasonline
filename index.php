@@ -19,16 +19,43 @@ $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <?php include 'includes/header.php'; ?>
 
 <!-- Hero Section -->
-<div class="hero-section bg-light p-5 rounded-3 mb-5">
+<div class="hero-section bg-light p-3 p-md-5 rounded-3 mb-5">
     <div class="container">
         <div class="row align-items-center">
-            <div class="col-md-6">
-                <h1 class="display-4 fw-bold">Welcome to GlasOnline</h1>
-                <p class="lead">Your one-stop shop for all aquarium needs. Find the best fish, plants, and equipment.</p>
-                <a href="products.php" class="btn btn-primary btn-lg">Shop Now</a>
+            <!-- For mobile: Full width, for larger screens: 9 columns -->
+            <div class="col-12 col-md-9 order-2 order-md-1">
+                <h1 class="h2 fw-bold mb-3">Green Leaf Aqua Studio</h1>
+                <p class="mb-3">We Provide Complete Aquatic Solutions</p>
+                
+                <div class="mb-3">
+                    <p class="mb-1 fw-bold">Our Process</p>
+                    <p class="mb-1">Consultation</p>
+                    <p class="mb-3">Expert advice in customization of tank size, build, filtration system, design etc</p>
+                </div>
+
+                <div class="d-flex align-items-center mb-3">
+                    <i class="fas fa-map-marker-alt me-2 text-primary"></i>
+                    <p class="mb-0">plot no 13, first floor, district center, bhubaneswar</p>
+                </div>
+
+                <div class="d-flex flex-wrap gap-2">
+                    <a href="tel:+919876543210" class="btn btn-primary d-flex align-items-center">
+                        <i class="fas fa-phone-alt me-2"></i> Call Store
+                    </a>
+                    <a href="https://wa.me/919876543210" class="btn btn-success d-flex align-items-center" target="_blank">
+                        <i class="fab fa-whatsapp me-2"></i> Send WhatsApp
+                    </a>
+                </div>
+
+                <p class="small text-muted mt-3 mb-0">GSTIN No: 21AAZFG8401A1ZO</p>
             </div>
-            <div class="col-md-6">
-                <img src="https://vyapar-catalog.vypcdn.in/6449540f74bee/firmDetails/firmLogo.jpg?v1752244895.512" alt="Aquarium" class="img-fluid rounded-3">
+            
+            <!-- For mobile: Full width, for larger screens: 3 columns -->
+            <div class="col-8 col-md-3 mx-auto mb-4 mb-md-0 order-1 order-md-2 text-center">
+                <img style="max-height: 200px; width: auto; border-radius: 50% !important;" 
+                     src="https://vyapar-catalog.vypcdn.in/6449540f74bee/firmDetails/firmLogo.jpg?v1752244895.512" 
+                     alt="Green Leaf Aqua Studio" 
+                     class="img-fluid d-block mx-auto">
             </div>
         </div>
     </div>
