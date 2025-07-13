@@ -218,7 +218,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
                                             <div class="mb-3">
                                                 <label for="price" class="form-label">Price *</label>
                                                 <div class="input-group">
-                                                    <span class="input-group-text">$</span>
+                                                    <span class="input-group-text">₹</span>
                                                     <input type="number" step="0.01" min="0.01" class="form-control" 
                                                            id="price" name="price" required
                                                            value="<?php echo htmlspecialchars($_POST['price'] ?? '0.00'); ?>">

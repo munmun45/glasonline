@@ -54,81 +54,16 @@ $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <title>Manage Orders - Admin Panel</title>
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        .sidebar {
-            min-height: calc(100vh - 56px);
-            background-color: #f8f9fa;
-            padding-top: 1rem;
-        }
-        .nav-link {
-            color: #333;
-            border-radius: 0.25rem;
-            margin-bottom: 0.25rem;
-        }
-        .nav-link:hover, .nav-link.active {
-            background-color: #0d6efd;
-            color: white;
-        }
-        .status-badge {
-            font-size: 0.8rem;
-            padding: 0.35em 0.65em;
-        }
-    </style>
+    
 </head>
 <body>
     <!-- Navbar -->
-    <nav class="navbar navbar-expand-lg navbar-dark bg-dark">
-        <div class="container-fluid">
-            <a class="navbar-brand" href="#">GlasOnline Admin</a>
-            <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarNav">
-                <span class="navbar-toggler-icon"></span>
-            </button>
-            <div class="collapse navbar-collapse" id="navbarNav">
-                <ul class="navbar-nav ms-auto">
-                    <li class="nav-item">
-                        <a class="nav-link" href="../index.php" target="_blank">
-                            <i class="fas fa-external-link-alt me-1"></i> View Site
-                        </a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-link" href="logout.php">
-                            <i class="fas fa-sign-out-alt me-1"></i> Logout
-                        </a>
-                    </li>
-                </ul>
-            </div>
-        </div>
-    </nav>
+    <?php include 'includes/header.php'; ?>
 
     <div class="container-fluid">
         <div class="row">
             <!-- Sidebar -->
-            <div class="col-md-3 col-lg-2 d-md-block sidebar">
-                <div class="position-sticky pt-3">
-                    <ul class="nav flex-column">
-                        <li class="nav-item">
-                            <a class="nav-link" href="dashboard.php">
-                                <i class="fas fa-tachometer-alt me-2"></i> Dashboard
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="products.php">
-                                <i class="fas fa-box me-2"></i> Products
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link active" href="orders.php">
-                                <i class="fas fa-shopping-cart me-2"></i> Orders
-                            </a>
-                        </li>
-                        <li class="nav-item">
-                            <a class="nav-link" href="categories.php">
-                                <i class="fas fa-tags me-2"></i> Categories
-                            </a>
-                        </li>
-                    </ul>
-                </div>
-            </div>
+            <?php include 'includes/slider.php'; ?>
 
             <!-- Main content -->
             <main class="col-md-9 ms-sm-auto col-lg-10 px-md-4 py-4">
@@ -193,7 +128,7 @@ $orders = $stmt->fetchAll(PDO::FETCH_ASSOC);
                                                 </td>
                                                 <td><?php echo date('M j, Y', strtotime($order['created_at'])); ?></td>
                                                 <td><?php echo $order['item_count']; ?> items</td>
-                                                <td>$<?php echo number_format($order['total_amount'], 2); ?></td>
+                                                <td>₹<?php echo number_format($order['total_amount'], 2); ?></td>
                                                 <td>
                                                     <span class="badge <?php echo $status_class; ?> status-badge">
                                                         <?php echo ucfirst($order['status']); ?>
