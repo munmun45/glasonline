@@ -1,5 +1,11 @@
 <?php
 class Database {
+    // private $host = "localhost";
+    // private $db_name = "u112926345_bookmyproduct";
+    // private $username = "u112926345_bookmyproduct";
+    // private $password = "6b=K@JZK";
+
+
     private $host = "localhost";
     private $db_name = "glas_online";
     private $username = "root";
