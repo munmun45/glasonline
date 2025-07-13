@@ -189,15 +189,12 @@ if (!empty($_SESSION['cart'])) {
         $stmt->execute($product_ids);
         $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
         
-        // Function to convert USD to INR
-        function usdToInr($usd) {
-            return $usd * 83.5; // Current conversion rate
-        }
+    
         
         foreach ($products as $product) {
             $product_id = $product['id'];
             $quantity = $cart_quantities[$product_id] ?? 1;
-            $price_inr = usdToInr($product['price']);
+            $price_inr = $product['price'];
             $item_total = $price_inr * $quantity;
             $subtotal += $item_total;
             

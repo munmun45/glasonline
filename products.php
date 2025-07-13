@@ -93,13 +93,10 @@ $products = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <?php else: ?>
     <div class="row g-4">
         <?php 
-        // Function to convert USD to INR
-        function usdToInr($usd) {
-            return $usd * 83.5; // Current conversion rate
-        }
+      
         
         foreach ($products as $product): 
-            $inr_price = usdToInr($product['price']);
+            $inr_price = $product['price'];
             $discount = (isset($product['discount']) && $product['discount'] > 0) ? $product['discount'] : 0;
             $final_price = $inr_price * (1 - ($discount/100));
         ?>

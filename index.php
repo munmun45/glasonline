@@ -96,13 +96,10 @@ $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
     <div class="row g-4">
         <?php 
         // Function to convert USD to INR (using approximate conversion rate)
-        function usdToInr($usd) {
-            $conversion_rate = 83.5; // 1 USD = 83.5 INR (approximate)
-            return $usd * $conversion_rate;
-        }
+        
         
         foreach ($products as $product): 
-            $inr_price = usdToInr($product['price']);
+            $inr_price = $product['price'];
             $original_price = $product['price'];
             $discount = (isset($product['discount']) && $product['discount'] > 0) ? $product['discount'] : 0;
             $final_price = $inr_price * (1 - ($discount/100));

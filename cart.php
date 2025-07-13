@@ -87,9 +87,7 @@ if (isset($_GET['remove'])) {
 }
 
 // Function to convert USD to INR
-function usdToInr($usd) {
-    return $usd * 83.5; // Current conversion rate
-}
+
 
 // Calculate cart totals
 $subtotal = 0;
@@ -116,7 +114,7 @@ if (!empty($_SESSION['cart'])) {
             if (isset($product_lookup[$cart_item['product_id']])) {
                 $product = $product_lookup[$cart_item['product_id']];
                 $quantity = $cart_item['quantity'];
-                $price_inr = usdToInr($product['price']);
+                $price_inr = $product['price'];
                 $item_total = $price_inr * $quantity;
                 $subtotal += $item_total;
                 
