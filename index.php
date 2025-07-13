@@ -65,15 +65,25 @@ $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
 <section class="mb-5">
     <div class="d-flex flex-nowrap overflow-auto pb-2" style="scrollbar-width: thin;">
         <?php 
-        // Array of different icons for categories
-        $category_icons = [
+        // Icon pool
+        $icon_pool = [
             'fa-fish', 'fa-water', 'fa-leaf', 'fa-tint', 
             'fa-seedling', 'fa-coral', 'fa-bacteria', 'fa-filter'
         ];
-        $i = 0;
+
+        // Optionally: Map specific category IDs or names to specific icons
+        $category_icon_map = [
+            // 'category_id_or_name' => 'fa-icon-name'
+            1 => 'fa-fish',
+            2 => 'fa-leaf',
+            'Aquatic' => 'fa-water', // Example using category name
+        ];
+
         foreach ($categories as $category): 
-            $icon = $category_icons[$i % count($category_icons)];
-            $i++;
+            // Check by ID or name
+            $icon = $category_icon_map[$category['id']] ?? 
+                    $category_icon_map[$category['name']] ?? 
+                    $icon_pool[array_rand($icon_pool)];
         ?>
         <div class="me-3 flex-shrink-0">
             <a href="products.php?category=<?php echo $category['id']; ?>" class="text-decoration-none">
@@ -86,6 +96,7 @@ $categories = $stmt->fetchAll(PDO::FETCH_ASSOC);
         <?php endforeach; ?>
     </div>
 </section>
+
 
 <!-- Featured Products -->
 <section class="mb-5">
